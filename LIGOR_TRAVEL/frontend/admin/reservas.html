@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+
+<html lang="es">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<meta content="Panel administrativo de Ligor Travel para gestionar reservas." name="description"/>
+<title>Administrar reservas | Ligor Travel</title>
+<link href="../css/styles.css" rel="stylesheet"/>
+<link href="../css/auth.css" rel="stylesheet"/>
+<link href="./css/admin.css" rel="stylesheet"/>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" rel="stylesheet"/>
+</head>
+<body class="admin-body">
+<header
+        class="header"
+        id="header"
+    >
+
+        <div class="header-container">
+
+            <!-- LOGOTIPO -->
+
+            <a
+                href="../index.html#inicio"
+                class="brand"
+            >
+
+                <div class="brand-icon">
+                    <i class="fa-solid fa-earth-americas"></i>
+                </div>
+
+                <div class="brand-text">
+
+                    <strong>
+                        Ligor Travel
+                    </strong>
+
+                    <span>
+                        Viaja, descubre y comparte
+                    </span>
+
+                </div>
+
+            </a>
+
+
+            <!-- NAVEGACIÓN -->
+
+            <nav
+                class="navigation"
+                id="navigation"
+                aria-label="Navegación principal"
+            >
+
+                <a
+                    href="#inicio"
+                    class="nav-link active"
+                >
+                    Inicio
+                </a>
+
+                <a
+                    href="#destinos"
+                    class="nav-link"
+                >
+                    Destinos
+                </a>
+
+                <a
+                    href="#experiencias"
+                    class="nav-link"
+                >
+                    Experiencias
+                </a>
+
+                <a
+                    href="#paquetes"
+                    class="nav-link"
+                >
+                    Paquetes
+                </a>
+
+                <a
+                    href="#nosotros"
+                    class="nav-link"
+                >
+                    Nosotros
+                </a>
+
+                <a
+                    href="#contacto"
+                    class="nav-link"
+                >
+                    Contacto
+                </a>
+
+            </nav>
+
+
+            <!-- ACCIONES DEL HEADER -->
+
+            <div class="header-actions">
+
+                <!-- SESIÓN -->
+
+                <div class="user-session-container">
+
+                    <button
+                        type="button"
+                        class="login-button"
+                        id="btnLogin"
+                        aria-haspopup="true"
+                        aria-expanded="false"
+                        aria-controls="menuUsuario"
+                    >
+
+                        <i class="fa-regular fa-user"></i>
+
+                        <span>
+                            Iniciar sesión
+                        </span>
+
+                    </button>
+
+
+                    <!-- MENÚ DEL USUARIO -->
+
+                    <div
+                        class="user-menu"
+                        id="menuUsuario"
+                        aria-hidden="true"
+                    >
+
+                        <div class="user-menu-header">
+
+                            <div class="user-menu-avatar">
+
+                                <i class="fa-solid fa-user"></i>
+
+                            </div>
+
+
+                            <div class="user-menu-information">
+
+                                <strong id="nombreMenuUsuario">
+                                    Usuario
+                                </strong>
+
+                                <span id="correoMenuUsuario">
+                                    correo@ejemplo.com
+                                </span>
+
+                                <small id="rolMenuUsuario">
+                                    Cliente
+                                </small>
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="user-menu-divider"></div>
+
+
+                        <!-- MI CUENTA -->
+
+                        <button
+                            type="button"
+                            class="user-menu-option"
+                            id="btnMiCuenta"
+                        >
+
+                            <i class="fa-regular fa-id-card"></i>
+
+                            <span>
+                                Mi cuenta
+                            </span>
+
+                        </button>
+
+
+                        <!-- CAMBIAR CUENTA -->
+
+                        <button
+                            type="button"
+                            class="user-menu-option"
+                            id="btnCambiarCuenta"
+                        >
+
+                            <i class="fa-solid fa-repeat"></i>
+
+                            <span>
+                                Cambiar de cuenta
+                            </span>
+
+                        </button>
+
+
+                        <!-- CERRAR SESIÓN -->
+
+                        <button
+                            type="button"
+                            class="user-menu-option logout-option"
+                            id="btnCerrarSesion"
+                        >
+
+                            <i class="fa-solid fa-right-from-bracket"></i>
+
+                            <span>
+                                Cerrar sesión
+                            </span>
+
+                        </button>
+
+                    </div>
+
+                </div>
+
+
+                <!-- MENÚ MÓVIL -->
+
+                <button
+                    type="button"
+                    class="menu-button"
+                    id="btnMenu"
+                    aria-label="Abrir menú"
+                    aria-expanded="false"
+                    aria-controls="navigation"
+                >
+
+                    <i class="fa-solid fa-bars"></i>
+
+                </button>
+
+            </div>
+
+        </div>
+
+    </header>
+<div class="admin-header-spacer" aria-hidden="true"></div>
+<div class="admin-layout admin-layout-standalone">
+
+<main class="admin-main admin-main-standalone">
+<header class="admin-topbar">
+<div>
+<span class="admin-eyebrow">Administración</span>
+<h1>Reservas</h1>
+<p>Consulta, registra y administra las reservas realizadas por tus clientes.</p>
+</div>
+
+</header>
+<section aria-label="Resumen de reservas" class="admin-summary-grid admin-summary-grid-reservas">
+<article class="summary-card">
+<div class="summary-icon"><i class="fa-solid fa-calendar-days"></i></div>
+<div><span>Total reservas</span><strong id="totalReservas">0</strong></div>
+</article>
+<article class="summary-card">
+<div class="summary-icon"><i class="fa-solid fa-clock"></i></div>
+<div><span>Pendientes</span><strong id="totalPendientes">0</strong></div>
+</article>
+<article class="summary-card">
+<div class="summary-icon"><i class="fa-solid fa-circle-check"></i></div>
+<div><span>Confirmadas</span><strong id="totalConfirmadas">0</strong></div>
+</article>
+<article class="summary-card reservation-cancelled-card">
+<div class="summary-icon"><i class="fa-solid fa-ban"></i></div>
+<div><span>Canceladas</span><strong id="totalCanceladas">0</strong></div>
+</article>
+</section>
+<section class="admin-card">
+<div class="admin-card-header">
+<div>
+<h2>Listado de reservas</h2>
+<p>Busca por cliente o paquete y filtra por estado o pago.</p>
+</div>
+<button class="admin-primary-button" id="btnNuevaReserva" type="button">
+<i class="fa-solid fa-plus"></i> Nueva reserva
+                </button>
+</div>
+<div class="admin-toolbar admin-toolbar-reservas">
+<div class="admin-search">
+<i class="fa-solid fa-magnifying-glass"></i>
+<input autocomplete="off" id="buscarReserva" placeholder="Buscar por cliente, correo o paquete..." type="search"/>
+</div>
+<select aria-label="Filtrar por estado" id="filtroEstadoReserva">
+<option value="">Todos los estados</option>
+<option value="Pendiente">Pendientes</option>
+<option value="Confirmada">Confirmadas</option>
+<option value="Cancelada">Canceladas</option>
+</select>
+<select aria-label="Filtrar por pago" id="filtroPagoReserva">
+<option value="">Todos los pagos</option>
+<option value="pagado">Con pago</option>
+<option value="sin-pago">Sin pago</option>
+</select>
+</div>
+<div class="admin-message" id="mensajeReservas" role="status"></div>
+<div class="admin-table-wrapper">
+<table class="admin-table">
+<thead>
+<tr>
+<th>#</th>
+<th>Cliente</th>
+<th>Paquete</th>
+<th>Fecha</th>
+<th>Personas</th>
+<th>Total</th>
+<th>Estado</th>
+<th>Pago</th>
+<th>Acciones</th>
+</tr>
+</thead>
+<tbody id="tablaReservas">
+<tr><td colspan="9"><div class="admin-loading"><i class="fa-solid fa-spinner fa-spin"></i> Cargando reservas...</div></td></tr>
+</tbody>
+</table>
+</div>
+</section>
+</main>
+</div>
+<div aria-hidden="true" class="admin-modal-overlay" id="modalReserva">
+<div aria-labelledby="tituloModalReserva" aria-modal="true" class="admin-modal" role="dialog">
+<button aria-label="Cerrar" class="admin-modal-close" id="btnCerrarModalReserva" type="button"><i class="fa-solid fa-xmark"></i></button>
+<div class="admin-modal-heading">
+<span id="etiquetaModalReserva">Nueva reserva</span>
+<h2 id="tituloModalReserva">Registrar reserva</h2>
+<p class="admin-modal-description" id="descripcionModalReserva">Selecciona el cliente, el paquete y la cantidad de personas.</p>
+</div>
+<div class="admin-message" id="mensajeModalReserva" role="status"></div>
+<form id="formReserva" novalidate="">
+<div class="admin-form-grid">
+<div class="admin-field">
+<label for="reservaUsuario">Cliente *</label>
+<select id="reservaUsuario" required=""></select>
+</div>
+<div class="admin-field">
+<label for="reservaPaquete">Paquete *</label>
+<select id="reservaPaquete" required=""></select>
+<small id="detallePaqueteReserva">Selecciona un paquete para ver sus cupos.</small>
+</div>
+<div class="admin-field">
+<label for="reservaCantidad">Cantidad de personas *</label>
+<input id="reservaCantidad" max="100" min="1" required="" type="number" value="1"/>
+</div>
+<div class="admin-field">
+<label>Total estimado</label>
+<div class="reservation-total-preview" id="totalEstimadoReserva">S/ 0.00</div>
+</div>
+</div>
+<div class="admin-modal-actions">
+<button class="admin-secondary-button" id="btnCancelarReserva" type="button">Cancelar</button>
+<button class="admin-primary-button" id="btnGuardarReserva" type="submit"><i class="fa-solid fa-floppy-disk"></i> Guardar</button>
+</div>
+</form>
+</div>
+</div>
+<div aria-hidden="true" class="admin-modal-overlay" id="modalEstadoReserva">
+<div aria-labelledby="tituloModalEstadoReserva" aria-modal="true" class="admin-modal admin-modal-small" role="dialog">
+<button aria-label="Cerrar" class="admin-modal-close" id="btnCerrarModalEstadoReserva" type="button"><i class="fa-solid fa-xmark"></i></button>
+<div class="admin-modal-heading">
+<span>Estado de reserva</span>
+<h2 id="tituloModalEstadoReserva">Cambiar estado</h2>
+<p class="admin-modal-description" id="textoEstadoReserva"></p>
+</div>
+<div class="admin-message" id="mensajeModalEstadoReserva" role="status"></div>
+<form id="formEstadoReserva" novalidate="">
+<div class="admin-field">
+<label for="nuevoEstadoReserva">Nuevo estado *</label>
+<select id="nuevoEstadoReserva" required="">
+<option value="Pendiente">Pendiente</option>
+<option value="Confirmada">Confirmada</option>
+<option value="Cancelada">Cancelada</option>
+</select>
+<small>Al cancelar se devuelven los cupos. Al reactivar una cancelada se vuelven a reservar.</small>
+</div>
+<div class="admin-modal-actions">
+<button class="admin-secondary-button" id="btnCancelarEstadoReserva" type="button">Cancelar</button>
+<button class="admin-primary-button" id="btnGuardarEstadoReserva" type="submit"><i class="fa-solid fa-arrows-rotate"></i> Actualizar estado</button>
+</div>
+</form>
+</div>
+</div>
+<script src="../js/config.js"></script>
+<script src="../js/auth.js"></script>
+<script src="./js/reservas-admin.js"></script>
+</body>
+</html>

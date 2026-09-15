@@ -1,0 +1,506 @@
+<!DOCTYPE html>
+
+<html lang="es">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<meta content="Panel administrativo de Ligor Travel para gestionar paquetes turísticos." name="description"/>
+<title>
+        Administrar paquetes | Ligor Travel
+    </title>
+<!-- ================================================= -->
+<!-- ESTILOS -->
+<!-- ================================================= -->
+<link href="../css/styles.css" rel="stylesheet"/>
+<link href="../css/auth.css" rel="stylesheet"/>
+<link href="./css/admin.css" rel="stylesheet"/>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" rel="stylesheet"/>
+</head>
+<body class="admin-body">
+<header class="header" id="header">
+<div class="header-container">
+<!-- LOGOTIPO -->
+<a class="brand" href="../index.html#inicio">
+<div class="brand-icon">
+<i class="fa-solid fa-earth-americas"></i>
+</div>
+<div class="brand-text">
+<strong>
+                        Ligor Travel
+                    </strong>
+<span>
+                        Viaja, descubre y comparte
+                    </span>
+</div>
+</a>
+<!-- NAVEGACIÓN -->
+<nav aria-label="Navegación principal" class="navigation" id="navigation">
+<a class="nav-link active" href="#inicio">
+                    Inicio
+                </a>
+<a class="nav-link" href="#destinos">
+                    Destinos
+                </a>
+<a class="nav-link" href="#experiencias">
+                    Experiencias
+                </a>
+<a class="nav-link" href="#paquetes">
+                    Paquetes
+                </a>
+<a class="nav-link" href="#nosotros">
+                    Nosotros
+                </a>
+<a class="nav-link" href="#contacto">
+                    Contacto
+                </a>
+</nav>
+<!-- ACCIONES DEL HEADER -->
+<div class="header-actions">
+<!-- SESIÓN -->
+<div class="user-session-container">
+<button aria-controls="menuUsuario" aria-expanded="false" aria-haspopup="true" class="login-button" id="btnLogin" type="button">
+<i class="fa-regular fa-user"></i>
+<span>
+                            Iniciar sesión
+                        </span>
+</button>
+<!-- MENÚ DEL USUARIO -->
+<div aria-hidden="true" class="user-menu" id="menuUsuario">
+<div class="user-menu-header">
+<div class="user-menu-avatar">
+<i class="fa-solid fa-user"></i>
+</div>
+<div class="user-menu-information">
+<strong id="nombreMenuUsuario">
+                                    Usuario
+                                </strong>
+<span id="correoMenuUsuario">
+                                    correo@ejemplo.com
+                                </span>
+<small id="rolMenuUsuario">
+                                    Cliente
+                                </small>
+</div>
+</div>
+<div class="user-menu-divider"></div>
+<!-- MI CUENTA -->
+<button class="user-menu-option" id="btnMiCuenta" type="button">
+<i class="fa-regular fa-id-card"></i>
+<span>
+                                Mi cuenta
+                            </span>
+</button>
+<!-- CAMBIAR CUENTA -->
+<button class="user-menu-option" id="btnCambiarCuenta" type="button">
+<i class="fa-solid fa-repeat"></i>
+<span>
+                                Cambiar de cuenta
+                            </span>
+</button>
+<!-- CERRAR SESIÓN -->
+<button class="user-menu-option logout-option" id="btnCerrarSesion" type="button">
+<i class="fa-solid fa-right-from-bracket"></i>
+<span>
+                                Cerrar sesión
+                            </span>
+</button>
+</div>
+</div>
+<!-- MENÚ MÓVIL -->
+<button aria-controls="navigation" aria-expanded="false" aria-label="Abrir menú" class="menu-button" id="btnMenu" type="button">
+<i class="fa-solid fa-bars"></i>
+</button>
+</div>
+</div>
+</header>
+<div aria-hidden="true" class="admin-header-spacer"></div>
+<div class="admin-layout admin-layout-standalone">
+<!-- ================================================= -->
+<!-- SIDEBAR -->
+<!-- ================================================= -->
+<!-- ================================================= -->
+<!-- CONTENIDO PRINCIPAL -->
+<!-- ================================================= -->
+<main class="admin-main admin-main-standalone">
+<!-- ================================================= -->
+<!-- CABECERA -->
+<!-- ================================================= -->
+<header class="admin-topbar">
+<div>
+<span class="admin-eyebrow">
+                        Panel administrativo
+                    </span>
+<h1>
+                        Paquetes turísticos
+                    </h1>
+<p>
+                        Agrega, edita, clasifica, activa,
+                        desactiva y elimina paquetes turísticos.
+                    </p>
+</div>
+<!-- USUARIO -->
+</header>
+<!-- ================================================= -->
+<!-- RESUMEN -->
+<!-- ================================================= -->
+<section aria-label="Resumen de paquetes" class="admin-summary-grid">
+<!-- TOTAL -->
+<article class="summary-card">
+<div class="summary-icon">
+<i class="fa-solid fa-suitcase"></i>
+</div>
+<div>
+<span>
+                            Total paquetes
+                        </span>
+<strong id="totalPaquetes">
+                            0
+                        </strong>
+</div>
+</article>
+<!-- ACTIVOS -->
+<article class="summary-card">
+<div class="summary-icon">
+<i class="fa-solid fa-circle-check"></i>
+</div>
+<div>
+<span>
+                            Activos
+                        </span>
+<strong id="totalActivos">
+                            0
+                        </strong>
+</div>
+</article>
+<!-- CUPOS -->
+<article class="summary-card">
+<div class="summary-icon">
+<i class="fa-solid fa-users"></i>
+</div>
+<div>
+<span>
+                            Cupos disponibles
+                        </span>
+<strong id="totalCupos">
+                            0
+                        </strong>
+</div>
+</article>
+</section>
+<!-- ================================================= -->
+<!-- GESTIÓN DE PAQUETES -->
+<!-- ================================================= -->
+<section class="admin-card">
+<!-- ================================================= -->
+<!-- CABECERA DE TARJETA -->
+<!-- ================================================= -->
+<div class="admin-card-header">
+<div>
+<h2>
+                            Gestión de paquetes
+                        </h2>
+<p>
+                            Administra la oferta turística
+                            de Ligor Travel.
+                        </p>
+</div>
+<button class="admin-primary-button" id="btnNuevoPaquete" type="button">
+<i class="fa-solid fa-plus"></i>
+<span>
+                            Nuevo paquete
+                        </span>
+</button>
+</div>
+<!-- ================================================= -->
+<!-- BUSCADOR Y FILTROS -->
+<!-- ================================================= -->
+<div class="admin-toolbar">
+<!-- BUSCADOR -->
+<div class="admin-search">
+<i class="fa-solid fa-magnifying-glass"></i>
+<input aria-label="Buscar paquete" id="buscarPaquete" placeholder="Buscar por nombre o destino..." type="search"/>
+</div>
+<!-- FILTRO CATEGORÍA -->
+<select aria-label="Filtrar paquetes por categoría" id="filtroCategoria">
+<option value="todas">
+                            Todas las categorías
+                        </option>
+<option value="Aventura">
+                            Aventura
+                        </option>
+<option value="Playas">
+                            Playas
+                        </option>
+<option value="Naturaleza">
+                            Naturaleza
+                        </option>
+<option value="Cultura">
+                            Cultura
+                        </option>
+<option value="Gastronomía">
+                            Gastronomía
+                        </option>
+<option value="Fotografía">
+                            Fotografía
+                        </option>
+</select>
+<!-- FILTRO ESTADO -->
+<select aria-label="Filtrar paquetes por estado" id="filtroEstado">
+<option value="todos">
+                            Todos
+                        </option>
+<option value="activos">
+                            Activos
+                        </option>
+<option value="inactivos">
+                            Inactivos
+                        </option>
+</select>
+</div>
+<!-- ================================================= -->
+<!-- TABLA -->
+<!-- ================================================= -->
+<div class="admin-table-wrapper">
+<table class="admin-table">
+<thead>
+<tr>
+<th scope="col">
+                                    Imagen
+                                </th>
+<th scope="col">
+                                    Paquete
+                                </th>
+<th scope="col">
+                                    Destino
+                                </th>
+<th scope="col">
+                                    Categoría
+                                </th>
+<th scope="col">
+                                    Precio
+                                </th>
+<th scope="col">
+                                    Días
+                                </th>
+<th scope="col">
+                                    Cupos
+                                </th>
+<th scope="col">
+                                    Estado
+                                </th>
+<th scope="col">
+                                    Acciones
+                                </th>
+</tr>
+</thead>
+<tbody id="tablaPaquetes">
+<tr>
+<td colspan="9">
+<div class="admin-loading">
+<i class="fa-solid fa-spinner fa-spin"></i>
+<span>
+                                            Cargando paquetes...
+                                        </span>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+</main>
+</div>
+<!-- ================================================= -->
+<!-- MODAL CREAR / EDITAR PAQUETE -->
+<!-- ================================================= -->
+<div aria-hidden="true" class="admin-modal-overlay" id="modalPaquete">
+<section aria-labelledby="modalTitulo" aria-modal="true" class="admin-modal" role="dialog">
+<!-- ================================================= -->
+<!-- CERRAR -->
+<!-- ================================================= -->
+<button aria-label="Cerrar formulario" class="admin-modal-close" id="btnCerrarModalPaquete" type="button">
+<i class="fa-solid fa-xmark"></i>
+</button>
+<!-- ================================================= -->
+<!-- CABECERA -->
+<!-- ================================================= -->
+<div class="admin-modal-heading">
+<span id="modalEtiqueta">
+                    Nuevo paquete
+                </span>
+<h2 id="modalTitulo">
+                    Agregar paquete turístico
+                </h2>
+<p>
+                    Completa la información y selecciona
+                    el tipo de experiencia del paquete.
+                </p>
+</div>
+<!-- ================================================= -->
+<!-- FORMULARIO -->
+<!-- ================================================= -->
+<form id="formPaquete">
+<input id="paqueteId" type="hidden"/>
+<!-- ================================================= -->
+<!-- CAMPOS PRINCIPALES -->
+<!-- ================================================= -->
+<div class="admin-form-grid">
+<!-- NOMBRE -->
+<div class="admin-field">
+<label for="paqueteNombre">
+                            Nombre
+                        </label>
+<input id="paqueteNombre" maxlength="150" placeholder="Ejemplo: Cusco Imperial" required="" type="text"/>
+</div>
+<!-- DESTINO -->
+<div class="admin-field">
+<label for="paqueteDestino">
+                            Destino
+                        </label>
+<input id="paqueteDestino" maxlength="100" placeholder="Ejemplo: Cusco" required="" type="text"/>
+</div>
+<!-- ================================================= -->
+<!-- NUEVO: TIPO DE EXPERIENCIA -->
+<!-- ================================================= -->
+<div class="admin-field">
+<label for="paqueteCategoria">
+                            Tipo de experiencia
+                        </label>
+<select id="paqueteCategoria" required="">
+<option disabled="" selected="" value="">
+                                Selecciona una categoría
+                            </option>
+<option value="Aventura">
+                                Aventura
+                            </option>
+<option value="Playas">
+                                Playas
+                            </option>
+<option value="Naturaleza">
+                                Naturaleza
+                            </option>
+<option value="Cultura">
+                                Cultura
+                            </option>
+<option value="Gastronomía">
+                                Gastronomía
+                            </option>
+<option value="Fotografía">
+                                Fotografía
+                            </option>
+</select>
+</div>
+<!-- PRECIO -->
+<div class="admin-field">
+<label for="paquetePrecio">
+                            Precio
+                        </label>
+<input id="paquetePrecio" min="0" placeholder="850.00" required="" step="0.01" type="number"/>
+</div>
+<!-- DURACIÓN -->
+<div class="admin-field">
+<label for="paqueteDuracion">
+                            Duración en días
+                        </label>
+<input id="paqueteDuracion" min="1" placeholder="4" required="" type="number"/>
+</div>
+<!-- CUPOS -->
+<div class="admin-field">
+<label for="paqueteCupos">
+                            Cupos
+                        </label>
+<input id="paqueteCupos" min="0" placeholder="20" required="" type="number"/>
+</div>
+<!-- ESTADO -->
+<div class="admin-field">
+<label for="paqueteActivo">
+                            Estado
+                        </label>
+<select id="paqueteActivo" required="">
+<option value="true">
+                                Activo
+                            </option>
+<option value="false">
+                                Inactivo
+                            </option>
+</select>
+</div>
+</div>
+<!-- ================================================= -->
+<!-- DESCRIPCIÓN -->
+<!-- ================================================= -->
+<div class="admin-field">
+<label for="paqueteDescripcion">
+                        Descripción
+                    </label>
+<textarea id="paqueteDescripcion" maxlength="500" placeholder="Describe qué incluye el paquete, qué podrá conocer el turista y qué experiencia vivirá..." required="" rows="5"></textarea>
+</div>
+<div class="admin-detail-fields">
+<h3><i class="fa-solid fa-route"></i> Información para la página de detalle</h3>
+<p class="admin-detail-help">Completa estos campos para que el cliente vea el tour con información detallada al abrir el paquete.</p>
+<div class="admin-form-grid">
+<div class="admin-field"><label for="paqueteHorarios">Horarios / salidas</label><input id="paqueteHorarios" type="text" placeholder="Ejemplo: 9:30 am, 11:30 am, 2:30 pm"></div>
+<div class="admin-field"><label for="paquetePuntoRecojo">Punto de recojo</label><input id="paquetePuntoRecojo" type="text" placeholder="Ejemplo: Recojo desde hotel"></div>
+</div>
+<div class="admin-field"><label for="paqueteQueViviras">¿Qué vivirás?</label><textarea id="paqueteQueViviras" rows="5" placeholder="Escribe una experiencia por línea..."></textarea></div>
+<div class="admin-field"><label for="paqueteItinerario">Itinerario</label><textarea id="paqueteItinerario" rows="8" placeholder="Describe las paradas y actividades del recorrido. Puedes escribir una etapa por línea."></textarea></div>
+<div class="admin-form-grid">
+<div class="admin-field"><label for="paqueteIncluye">Incluye</label><textarea id="paqueteIncluye" rows="6" placeholder="Un servicio por línea..."></textarea></div>
+<div class="admin-field"><label for="paqueteNoIncluye">No incluye</label><textarea id="paqueteNoIncluye" rows="6" placeholder="Un elemento por línea..."></textarea></div>
+</div>
+<div class="admin-field"><label for="paqueteRecomendaciones">Recomendaciones</label><textarea id="paqueteRecomendaciones" rows="5" placeholder="Una recomendación por línea..."></textarea></div>
+</div>
+<!-- ================================================= -->
+<!-- IMAGEN -->
+<!-- ================================================= -->
+<div class="admin-field">
+<label for="paqueteImagen">
+                        Imagen del paquete
+                    </label>
+<input accept="image/jpeg,image/png,image/webp" id="paqueteImagen" type="file"/>
+<small>
+                        Formatos permitidos:
+                        JPG, JPEG, PNG o WEBP.
+                        Máximo 5 MB.
+                    </small>
+</div>
+<!-- ================================================= -->
+<!-- VISTA PREVIA -->
+<!-- ================================================= -->
+<div class="admin-image-preview" id="vistaPreviaImagen">
+<i class="fa-regular fa-image"></i>
+<span>
+                        Sin imagen seleccionada
+                    </span>
+</div>
+<!-- ================================================= -->
+<!-- MENSAJES -->
+<!-- ================================================= -->
+<div aria-live="polite" class="admin-message" id="mensajePaquete"></div>
+<!-- ================================================= -->
+<!-- ACCIONES -->
+<!-- ================================================= -->
+<div class="admin-modal-actions">
+<button class="admin-secondary-button" id="btnCancelarPaquete" type="button">
+
+                        Cancelar
+
+                    </button>
+<button class="admin-primary-button" id="btnGuardarPaquete" type="submit">
+<i class="fa-solid fa-floppy-disk"></i>
+<span>
+                            Guardar paquete
+                        </span>
+</button>
+</div>
+</form>
+</section>
+</div>
+<!-- ================================================= -->
+<!-- JAVASCRIPT -->
+<!-- ================================================= -->
+<script src="../js/config.js"></script>
+<script src="../js/auth.js"></script>
+<script src="./js/paquetes-admin.js"></script>
+</body>
+</html>

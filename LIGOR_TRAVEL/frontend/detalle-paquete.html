@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Detalle de paquete turístico - Ligor Travel">
+  <title>Detalle del paquete | Ligor Travel</title>
+  <link rel="stylesheet" href="./css/styles.css">
+  <link rel="stylesheet" href="./css/auth.css">
+  <link rel="stylesheet" href="./css/detalle-paquete.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+</head>
+<body>
+<header class="header" id="header">
+  <div class="header-container">
+    <a href="./index.html#inicio" class="brand">
+      <div class="brand-icon"><i class="fa-solid fa-earth-americas"></i></div>
+      <div class="brand-text"><strong>Ligor Travel</strong><span>Viaja, descubre y comparte</span></div>
+    </a>
+    <nav class="navigation" id="navigation" aria-label="Navegación principal">
+      <a href="./index.html#inicio" class="nav-link active">Inicio</a>
+      <a href="./index.html#destinos" class="nav-link">Destinos</a>
+      <a href="./index.html#experiencias" class="nav-link">Experiencias</a>
+      <a href="./index.html#paquetes" class="nav-link">Paquetes</a>
+      <a href="./index.html#nosotros" class="nav-link">Nosotros</a>
+      <a href="./index.html#contacto" class="nav-link">Contacto</a>
+    </nav>
+    <div class="header-actions">
+      <div class="user-session-container">
+        <button type="button" class="login-button" id="btnLogin" aria-haspopup="true" aria-expanded="false" aria-controls="menuUsuario">
+          <i class="fa-regular fa-user"></i><span>Iniciar sesión</span>
+        </button>
+        <div class="user-menu" id="menuUsuario" aria-hidden="true">
+          <div class="user-menu-header"><div class="user-menu-avatar"><i class="fa-solid fa-user"></i></div><div class="user-menu-information"><strong id="nombreMenuUsuario">Usuario</strong><span id="correoMenuUsuario">correo@ejemplo.com</span></div></div>
+          <a href="./mi-cuenta.html" class="user-menu-item"><i class="fa-regular fa-id-card"></i><span>Mi cuenta</span></a>
+          <button type="button" class="user-menu-item" id="btnCambiarCuenta"><i class="fa-solid fa-right-left"></i><span>Cambiar de cuenta</span></button>
+          <button type="button" class="user-menu-item danger" id="btnCerrarSesion"><i class="fa-solid fa-right-from-bracket"></i><span>Cerrar sesión</span></button>
+        </div>
+      </div>
+      <button type="button" class="menu-button" id="btnMenu" aria-label="Abrir menú"><i class="fa-solid fa-bars"></i></button>
+    </div>
+  </div>
+</header>
+
+<main class="tour-detail-page" id="inicio">
+  <div class="detail-loading" id="detalleCarga"><i class="fa-solid fa-spinner fa-spin"></i> Cargando paquete...</div>
+  <div class="detail-error" id="detalleError" hidden></div>
+  <div id="detalleContenido" hidden>
+    <section class="tour-breadcrumb"><a href="./index.html#paquetes">Paquetes</a><i class="fa-solid fa-chevron-right"></i><span id="migaNombre">Detalle</span></section>
+    <section class="tour-heading">
+      <div><span class="tour-category" id="detalleCategoria">Experiencia</span><h1 id="detalleNombre">Paquete turístico</h1><div class="tour-location"><i class="fa-solid fa-location-dot"></i><span id="detalleDestino">Perú</span></div></div>
+      <div class="tour-rating" id="resumenRating"><strong>Nuevo</strong><span>Sin opiniones aún</span></div>
+    </section>
+    <section class="tour-gallery"><img id="detalleImagen" alt="Imagen del paquete"><div class="gallery-badge"><i class="fa-solid fa-camera"></i> Ligor Travel</div></section>
+    <section class="quick-info">
+      <div><i class="fa-regular fa-clock"></i><span>Duración</span><strong id="detalleDuracion">1 día</strong></div>
+      <div><i class="fa-solid fa-users"></i><span>Disponibilidad</span><strong id="detalleCupos">0 cupos</strong></div>
+      <div><i class="fa-solid fa-location-dot"></i><span>Destino</span><strong id="detalleDestinoInfo">Perú</strong></div>
+      <div><i class="fa-solid fa-tag"></i><span>Tipo</span><strong id="detalleCategoriaInfo">Experiencia</strong></div>
+    </section>
+    <div class="tour-layout">
+      <div class="tour-main-content">
+        <section class="tour-panel"><h2>Descripción de la experiencia</h2><p id="detalleDescripcion"></p></section>
+        <section class="tour-panel" id="panelQueViviras"><h2>¿Qué vivirás?</h2><div class="detail-list checks" id="detalleQueViviras"></div></section>
+        <section class="tour-panel" id="panelItinerario"><h2>Itinerario del tour</h2><div class="itinerary-list" id="detalleItinerario"></div></section>
+        <section class="tour-panel"><h2>Información del paquete</h2><div class="included-grid"><div class="included"><h3><i class="fa-solid fa-circle-check"></i> Incluye</h3><div class="detail-list" id="detalleIncluye"></div></div><div class="not-included"><h3><i class="fa-solid fa-circle-xmark"></i> No incluye</h3><div class="detail-list" id="detalleNoIncluye"></div></div></div><div class="recommend detail-recommend"><h3><i class="fa-solid fa-circle-info"></i> Recomendaciones</h3><div class="detail-list" id="detalleRecomendaciones"></div></div></section>
+        <section class="tour-panel" id="opinionesSeccion"><div class="reviews-title"><h2>Opiniones de viajeros</h2><span id="cantidadOpiniones">0 opiniones</span></div><div id="listaOpiniones" class="reviews-list"></div></section>
+      </div>
+      <aside class="booking-card">
+        <div class="booking-price"><span>Desde</span><strong id="detallePrecio">S/ 0.00</strong><small>por persona</small></div>
+        <hr>
+        <label for="fechaReservaDetalle">Fecha de inicio</label><input type="date" id="fechaReservaDetalle">
+        <div id="bloqueHorario"><label for="horarioReservaDetalle">Horario</label><select id="horarioReservaDetalle"></select></div>
+        <div class="pickup-detail" id="bloqueRecojo"><i class="fa-solid fa-location-dot"></i><span id="detallePuntoRecojo"></span></div>
+        <label>Personas</label><div class="people-control"><button type="button" id="restarPersona">−</button><strong id="cantidadPersonas">1</strong><button type="button" id="sumarPersona">+</button></div>
+        <div class="booking-summary"><span>Precio por persona <strong id="precioPersona">S/ 0.00</strong></span><span class="total">Total <strong id="precioTotal">S/ 0.00</strong></span></div>
+        <button type="button" class="book-now" id="btnReservarDetalle"><i class="fa-solid fa-calendar-check"></i> Reservar ahora</button>
+        <p class="booking-help"><i class="fa-brands fa-whatsapp"></i> ¿Tienes dudas? Contáctanos y te ayudamos.</p>
+      </aside>
+    </div>
+  </div>
+</main>
+<div class="toast-container" id="toastContainer"></div>
+<script src="./js/config.js"></script>
+<script src="./js/auth.js"></script>
+<script src="./js/detalle-paquete.js"></script>
+</body>
+</html>

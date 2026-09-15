@@ -1,0 +1,462 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Explorar destinos | Ligor Travel</title>
+
+    <link rel="stylesheet" href="./css/styles.css">
+    <link rel="stylesheet" href="./css/explorar.css">
+</head>
+
+<body>
+
+    <!-- ==============================
+         ENCABEZADO
+    =============================== -->
+
+    <header class="explorar-header">
+
+        <div class="explorar-logo">
+            <a href="./index.html">
+                <img src="./img/logo.png" alt="Ligor Travel">
+            </a>
+
+            <span>Explorar destinos</span>
+        </div>
+
+        <div class="explorar-acciones">
+
+            <a href="./index.html" class="btn-volver">
+                ← Volver
+            </a>
+
+        </div>
+
+    </header>
+
+
+    <!-- ==============================
+         CONTENIDO PRINCIPAL
+    =============================== -->
+
+    <main class="explorar-container">
+
+        <!-- PANEL IZQUIERDO -->
+
+        <aside class="explorar-panel">
+
+            <div class="panel-titulo">
+
+                <span class="panel-icono">🧭</span>
+
+                <div>
+                    <h1>Explora Perú</h1>
+                    <p>Encuentra tu próximo destino</p>
+                </div>
+
+            </div>
+
+
+            <!-- BUSCADOR -->
+
+            <div class="buscador-destino">
+
+                <label for="buscarDestino">
+                    Buscar destino
+                </label>
+
+                <div class="buscador-input">
+
+                    <input
+                        type="text"
+                        id="buscarDestino"
+                        placeholder="Ej. Cusco, Máncora..."
+                        autocomplete="off"
+                    >
+
+                    <button
+                        type="button"
+                        id="btnBuscarDestino"
+                        title="Buscar destino"
+                    >
+                        🔎
+                    </button>
+
+                </div>
+
+                <div
+                    id="resultadosBusqueda"
+                    class="resultados-busqueda"
+                ></div>
+
+            </div>
+
+
+            <!-- UBICACIÓN -->
+
+            <button
+                type="button"
+                id="btnMiUbicacion"
+                class="btn-ubicacion"
+            >
+                📍 Usar mi ubicación
+            </button>
+
+
+            <!-- DESTINOS RÁPIDOS -->
+
+            <section class="destinos-rapidos">
+
+                <h2>Destinos populares</h2>
+
+                <button
+                    class="destino-card"
+                    data-destino="Cusco"
+                    type="button"
+                >
+
+                    <span class="destino-emoji">🏔️</span>
+
+                    <span class="destino-info">
+                        <strong>Cusco</strong>
+                        <small>Historia y naturaleza</small>
+                    </span>
+
+                </button>
+
+
+                <button
+                    class="destino-card"
+                    data-destino="Mancora"
+                    type="button"
+                >
+
+                    <span class="destino-emoji">🏖️</span>
+
+                    <span class="destino-info">
+                        <strong>Máncora</strong>
+                        <small>Playa y descanso</small>
+                    </span>
+
+                </button>
+
+
+                <button
+                    class="destino-card"
+                    data-destino="Arequipa"
+                    type="button"
+                >
+
+                    <span class="destino-emoji">🌋</span>
+
+                    <span class="destino-info">
+                        <strong>Arequipa</strong>
+                        <small>Cultura y aventura</small>
+                    </span>
+
+                </button>
+
+
+                <button
+                    class="destino-card"
+                    data-destino="Paracas"
+                    type="button"
+                >
+
+                    <span class="destino-emoji">🌊</span>
+
+                    <span class="destino-info">
+                        <strong>Paracas</strong>
+                        <small>Mar y naturaleza</small>
+                    </span>
+
+                </button>
+
+            </section>
+
+
+            <!-- INFORMACIÓN DEL DESTINO -->
+
+            <section
+                id="informacionDestino"
+                class="informacion-destino"
+            >
+
+                <div class="info-placeholder">
+
+                    <span>📍</span>
+
+                    <h2>Selecciona un destino</h2>
+
+                    <p>
+                        Elige un destino para conocer su
+                        ubicación y calcular tu ruta.
+                    </p>
+
+                </div>
+
+            </section>
+
+
+            <!-- BOTÓN LIGOR IA -->
+
+            <button
+                type="button"
+                id="btnLigorIA"
+                class="btn-ligor-ia"
+            >
+
+                <span>🤖</span>
+
+                <span>
+                    <strong>Preguntar a Ligor IA</strong>
+                    <small>Obtén una recomendación personalizada</small>
+                </span>
+
+            </button>
+
+        </aside>
+
+
+        <!-- MAPA -->
+
+        <section class="mapa-contenedor">
+
+            <div class="mapa-barra-superior">
+
+                <div class="estado-mapa">
+
+                    <span
+                        id="estadoMapaIcono"
+                        class="estado-icono"
+                    >
+                        🗺️
+                    </span>
+
+                    <span id="estadoMapa">
+                        Cargando mapa...
+                    </span>
+
+                </div>
+
+
+                <div class="controles-mapa">
+
+                    <button
+                        type="button"
+                        id="btnMapaNormal"
+                        class="control-mapa activo"
+                    >
+                        🗺️ Mapa
+                    </button>
+
+                    <button
+                        type="button"
+                        id="btnMapaSatelite"
+                        class="control-mapa"
+                    >
+                        🛰️ Satélite
+                    </button>
+
+                    <button
+                        type="button"
+                        id="btnTrafico"
+                        class="control-mapa"
+                    >
+                        🚦 Tráfico
+                    </button>
+
+                </div>
+
+            </div>
+
+
+            <div
+                id="map"
+                class="mapa"
+            ></div>
+
+
+            <!-- MENSAJE INICIAL -->
+
+            <div
+                id="mensajeMapa"
+                class="mensaje-mapa"
+            >
+
+                <div class="mensaje-mapa-contenido">
+
+                    <span>🗺️</span>
+
+                    <h2>Mapa de Ligor Travel</h2>
+
+                    <p>
+                        Busca un destino para comenzar
+                        a explorar.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- ==============================
+         MODAL LIGOR IA
+    =============================== -->
+
+    <div
+        id="modalLigorIA"
+        class="modal-ligor"
+        aria-hidden="true"
+    >
+
+        <div class="modal-ligor-contenido">
+
+            <button
+                type="button"
+                id="btnCerrarLigorIA"
+                class="modal-cerrar"
+            >
+                ×
+            </button>
+
+
+            <div class="modal-ligor-titulo">
+
+                <span>🤖</span>
+
+                <div>
+                    <h2>Ligor IA</h2>
+
+                    <p>
+                        Tu asistente de viajes
+                    </p>
+                </div>
+
+            </div>
+
+
+            <div class="ligor-formulario">
+
+                <label for="preferenciaIA">
+                    ¿Qué tipo de viaje buscas?
+                </label>
+
+                <select id="preferenciaIA">
+
+                    <option value="">
+                        Selecciona una opción
+                    </option>
+
+                    <option value="naturaleza">
+                        🌿 Naturaleza
+                    </option>
+
+                    <option value="playa">
+                        🏖️ Playa
+                    </option>
+
+                    <option value="cultura">
+                        🏛️ Cultura
+                    </option>
+
+                    <option value="aventura">
+                        🧗 Aventura
+                    </option>
+
+                    <option value="familia">
+                        👨‍👩‍👧‍👦 Viaje familiar
+                    </option>
+
+                    <option value="romantico">
+                        ❤️ Viaje romántico
+                    </option>
+
+                </select>
+
+
+                <label for="presupuestoIA">
+                    ¿Cuál es tu presupuesto?
+                </label>
+
+                <input
+                    type="number"
+                    id="presupuestoIA"
+                    min="0"
+                    placeholder="Ej. 1000"
+                >
+
+
+                <label for="mesIA">
+                    ¿En qué mes quieres viajar?
+                </label>
+
+                <select id="mesIA">
+
+                    <option value="">
+                        Selecciona el mes
+                    </option>
+
+                    <option value="enero">Enero</option>
+                    <option value="febrero">Febrero</option>
+                    <option value="marzo">Marzo</option>
+                    <option value="abril">Abril</option>
+                    <option value="mayo">Mayo</option>
+                    <option value="junio">Junio</option>
+                    <option value="julio">Julio</option>
+                    <option value="agosto">Agosto</option>
+                    <option value="septiembre">Septiembre</option>
+                    <option value="octubre">Octubre</option>
+                    <option value="noviembre">Noviembre</option>
+                    <option value="diciembre">Diciembre</option>
+
+                </select>
+
+
+                <button
+                    type="button"
+                    id="btnRecomendarIA"
+                    class="btn-recomendar"
+                >
+                    ✨ Obtener recomendación
+                </button>
+
+            </div>
+
+
+            <div
+                id="resultadoIA"
+                class="resultado-ia"
+            ></div>
+
+        </div>
+
+    </div>
+
+
+    <!-- CONFIGURACIÓN -->
+
+    <script src="./js/config.js"></script>
+
+
+    <!-- JAVASCRIPT DEL MAPA -->
+
+    <script src="./js/explorar.js"></script>
+
+
+    <!-- GOOGLE MAPS -->
+
+    <script
+        id="googleMapsScript"
+        async
+        defer
+    ></script>
+
+</body>
+</html>

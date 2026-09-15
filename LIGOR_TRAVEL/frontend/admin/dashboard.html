@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+
+<html lang="es">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<meta content="Dashboard administrativo de Ligor Travel." name="description"/>
+<title>Dashboard | Ligor Travel</title>
+<link href="../css/styles.css" rel="stylesheet"/>
+<link href="../css/auth.css" rel="stylesheet"/>
+<link href="./css/admin.css" rel="stylesheet"/>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" rel="stylesheet"/>
+</head>
+<body class="admin-body">
+<header
+        class="header"
+        id="header"
+    >
+
+        <div class="header-container">
+
+            <!-- LOGOTIPO -->
+
+            <a
+                href="../index.html#inicio"
+                class="brand"
+            >
+
+                <div class="brand-icon">
+                    <i class="fa-solid fa-earth-americas"></i>
+                </div>
+
+                <div class="brand-text">
+
+                    <strong>
+                        Ligor Travel
+                    </strong>
+
+                    <span>
+                        Viaja, descubre y comparte
+                    </span>
+
+                </div>
+
+            </a>
+
+
+            <!-- NAVEGACIÓN -->
+
+            <nav
+                class="navigation"
+                id="navigation"
+                aria-label="Navegación principal"
+            >
+
+                <a
+                    href="#inicio"
+                    class="nav-link active"
+                >
+                    Inicio
+                </a>
+
+                <a
+                    href="#destinos"
+                    class="nav-link"
+                >
+                    Destinos
+                </a>
+
+                <a
+                    href="#experiencias"
+                    class="nav-link"
+                >
+                    Experiencias
+                </a>
+
+                <a
+                    href="#paquetes"
+                    class="nav-link"
+                >
+                    Paquetes
+                </a>
+
+                <a
+                    href="#nosotros"
+                    class="nav-link"
+                >
+                    Nosotros
+                </a>
+
+                <a
+                    href="#contacto"
+                    class="nav-link"
+                >
+                    Contacto
+                </a>
+
+            </nav>
+
+
+            <!-- ACCIONES DEL HEADER -->
+
+            <div class="header-actions">
+
+                <!-- SESIÓN -->
+
+                <div class="user-session-container">
+
+                    <button
+                        type="button"
+                        class="login-button"
+                        id="btnLogin"
+                        aria-haspopup="true"
+                        aria-expanded="false"
+                        aria-controls="menuUsuario"
+                    >
+
+                        <i class="fa-regular fa-user"></i>
+
+                        <span>
+                            Iniciar sesión
+                        </span>
+
+                    </button>
+
+
+                    <!-- MENÚ DEL USUARIO -->
+
+                    <div
+                        class="user-menu"
+                        id="menuUsuario"
+                        aria-hidden="true"
+                    >
+
+                        <div class="user-menu-header">
+
+                            <div class="user-menu-avatar">
+
+                                <i class="fa-solid fa-user"></i>
+
+                            </div>
+
+
+                            <div class="user-menu-information">
+
+                                <strong id="nombreMenuUsuario">
+                                    Usuario
+                                </strong>
+
+                                <span id="correoMenuUsuario">
+                                    correo@ejemplo.com
+                                </span>
+
+                                <small id="rolMenuUsuario">
+                                    Cliente
+                                </small>
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="user-menu-divider"></div>
+
+
+                        <!-- MI CUENTA -->
+
+                        <button
+                            type="button"
+                            class="user-menu-option"
+                            id="btnMiCuenta"
+                        >
+
+                            <i class="fa-regular fa-id-card"></i>
+
+                            <span>
+                                Mi cuenta
+                            </span>
+
+                        </button>
+
+
+                        <!-- CAMBIAR CUENTA -->
+
+                        <button
+                            type="button"
+                            class="user-menu-option"
+                            id="btnCambiarCuenta"
+                        >
+
+                            <i class="fa-solid fa-repeat"></i>
+
+                            <span>
+                                Cambiar de cuenta
+                            </span>
+
+                        </button>
+
+
+                        <!-- CERRAR SESIÓN -->
+
+                        <button
+                            type="button"
+                            class="user-menu-option logout-option"
+                            id="btnCerrarSesion"
+                        >
+
+                            <i class="fa-solid fa-right-from-bracket"></i>
+
+                            <span>
+                                Cerrar sesión
+                            </span>
+
+                        </button>
+
+                    </div>
+
+                </div>
+
+
+                <!-- MENÚ MÓVIL -->
+
+                <button
+                    type="button"
+                    class="menu-button"
+                    id="btnMenu"
+                    aria-label="Abrir menú"
+                    aria-expanded="false"
+                    aria-controls="navigation"
+                >
+
+                    <i class="fa-solid fa-bars"></i>
+
+                </button>
+
+            </div>
+
+        </div>
+
+    </header>
+<div class="admin-header-spacer" aria-hidden="true"></div>
+<div class="admin-layout dashboard-layout-standalone admin-layout-standalone">
+<main class="admin-main dashboard-main-standalone admin-main-standalone">
+<header class="admin-topbar">
+<div>
+<span class="admin-eyebrow">Administración</span>
+<h1>Dashboard</h1>
+<p>Resumen general del funcionamiento de Ligor Travel.</p>
+</div>
+
+</header>
+<div class="admin-message" id="mensajeDashboard" role="status"></div>
+<section aria-label="Indicadores principales" class="dashboard-kpi-grid">
+<article class="dashboard-kpi">
+<div class="dashboard-kpi-icon"><i class="fa-solid fa-wallet"></i></div>
+<div class="dashboard-kpi-content">
+<span>Ingresos totales</span>
+<strong id="ingresosTotales">S/ 0.00</strong>
+<small><b id="pagosTotales">0</b> pagos registrados</small>
+</div>
+</article>
+<article class="dashboard-kpi">
+<div class="dashboard-kpi-icon"><i class="fa-solid fa-calendar-check"></i></div>
+<div class="dashboard-kpi-content">
+<span>Reservas</span>
+<strong id="totalReservas">0</strong>
+<small><b id="reservasPendientes">0</b> pendientes</small>
+</div>
+</article>
+<article class="dashboard-kpi">
+<div class="dashboard-kpi-icon"><i class="fa-solid fa-users"></i></div>
+<div class="dashboard-kpi-content">
+<span>Usuarios</span>
+<strong id="totalUsuarios">0</strong>
+<small><b id="usuariosActivos">0</b> activos</small>
+</div>
+</article>
+<article class="dashboard-kpi">
+<div class="dashboard-kpi-icon"><i class="fa-solid fa-suitcase-rolling"></i></div>
+<div class="dashboard-kpi-content">
+<span>Paquetes</span>
+<strong id="totalPaquetes">0</strong>
+<small><b id="paquetesActivos">0</b> activos</small>
+</div>
+</article>
+</section>
+<section class="dashboard-secondary-grid">
+<article class="dashboard-mini-card">
+<span>Ingresos de este mes</span>
+<strong id="ingresosMes">S/ 0.00</strong>
+<i class="fa-solid fa-arrow-trend-up"></i>
+</article>
+<article class="dashboard-mini-card">
+<span>Nuevos clientes este mes</span>
+<strong id="clientesNuevosMes">0</strong>
+<i class="fa-solid fa-user-plus"></i>
+</article>
+<article class="dashboard-mini-card">
+<span>Reservas confirmadas</span>
+<strong id="reservasConfirmadas">0</strong>
+<i class="fa-solid fa-circle-check"></i>
+</article>
+<article class="dashboard-mini-card">
+<span>Opiniones recibidas</span>
+<strong id="totalOpiniones">0</strong>
+<i class="fa-solid fa-star"></i>
+</article>
+</section>
+<section class="dashboard-grid-main">
+<article class="admin-card dashboard-chart-card">
+<div class="admin-card-header">
+<div>
+<h2>Ingresos de los últimos 6 meses</h2>
+<p>Evolución de pagos confirmados.</p>
+</div>
+</div>
+<div class="dashboard-chart" id="graficoVentas">
+<div class="admin-loading"><i class="fa-solid fa-spinner fa-spin"></i> Cargando datos...</div>
+</div>
+</article>
+<article class="admin-card">
+<div class="admin-card-header">
+<div>
+<h2>Estado de reservas</h2>
+<p>Distribución actual de las reservas.</p>
+</div>
+</div>
+<div class="dashboard-status-list">
+<div class="dashboard-status-row">
+<div><span class="dashboard-dot pending"></span>Pendientes</div>
+<strong id="estadoPendientes">0</strong>
+</div>
+<div class="dashboard-progress"><span id="barraPendientes"></span></div>
+<div class="dashboard-status-row">
+<div><span class="dashboard-dot success"></span>Confirmadas</div>
+<strong id="estadoConfirmadas">0</strong>
+</div>
+<div class="dashboard-progress"><span id="barraConfirmadas"></span></div>
+<div class="dashboard-status-row">
+<div><span class="dashboard-dot danger"></span>Canceladas</div>
+<strong id="estadoCanceladas">0</strong>
+</div>
+<div class="dashboard-progress"><span id="barraCanceladas"></span></div>
+</div>
+</article>
+</section>
+<section class="dashboard-grid-main dashboard-grid-bottom">
+<article class="admin-card">
+<div class="admin-card-header">
+<div>
+<h2>Paquetes más reservados</h2>
+<p>Los destinos con mayor movimiento.</p>
+</div>
+<a class="dashboard-link" href="./paquetes.html">Ver paquetes <i class="fa-solid fa-arrow-right"></i></a>
+</div>
+<div class="dashboard-ranking" id="topPaquetes">
+<div class="admin-loading"><i class="fa-solid fa-spinner fa-spin"></i> Cargando...</div>
+</div>
+</article>
+<article class="admin-card dashboard-recent-card">
+<div class="admin-card-header">
+<div>
+<h2>Reservas recientes</h2>
+<p>Últimas operaciones registradas.</p>
+</div>
+</div>
+<div class="admin-table-wrapper">
+<table class="admin-table dashboard-table">
+<thead>
+<tr>
+<th>Cliente</th>
+<th>Paquete</th>
+<th>Total</th>
+<th>Estado</th>
+</tr>
+</thead>
+<tbody id="tablaReservasRecientes">
+<tr><td colspan="4"><div class="admin-loading">Cargando...</div></td></tr>
+</tbody>
+</table>
+</div>
+</article>
+</section>
+</main>
+</div>
+<script src="../js/config.js"></script>
+<script src="../js/auth.js"></script>
+<script src="./js/dashboard-admin.js"></script>
+</body>
+</html>

@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+
+<html lang="es">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<meta content="Panel administrativo de Ligor Travel para gestionar usuarios." name="description"/>
+<title>Administrar usuarios | Ligor Travel</title>
+<link href="../css/styles.css" rel="stylesheet"/>
+<link href="../css/auth.css" rel="stylesheet"/>
+<link href="./css/admin.css" rel="stylesheet"/>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" rel="stylesheet"/>
+</head>
+<body class="admin-body">
+<header
+        class="header"
+        id="header"
+    >
+
+        <div class="header-container">
+
+            <!-- LOGOTIPO -->
+
+            <a
+                href="../index.html#inicio"
+                class="brand"
+            >
+
+                <div class="brand-icon">
+                    <i class="fa-solid fa-earth-americas"></i>
+                </div>
+
+                <div class="brand-text">
+
+                    <strong>
+                        Ligor Travel
+                    </strong>
+
+                    <span>
+                        Viaja, descubre y comparte
+                    </span>
+
+                </div>
+
+            </a>
+
+
+            <!-- NAVEGACIÓN -->
+
+            <nav
+                class="navigation"
+                id="navigation"
+                aria-label="Navegación principal"
+            >
+
+                <a
+                    href="#inicio"
+                    class="nav-link active"
+                >
+                    Inicio
+                </a>
+
+                <a
+                    href="#destinos"
+                    class="nav-link"
+                >
+                    Destinos
+                </a>
+
+                <a
+                    href="#experiencias"
+                    class="nav-link"
+                >
+                    Experiencias
+                </a>
+
+                <a
+                    href="#paquetes"
+                    class="nav-link"
+                >
+                    Paquetes
+                </a>
+
+                <a
+                    href="#nosotros"
+                    class="nav-link"
+                >
+                    Nosotros
+                </a>
+
+                <a
+                    href="#contacto"
+                    class="nav-link"
+                >
+                    Contacto
+                </a>
+
+            </nav>
+
+
+            <!-- ACCIONES DEL HEADER -->
+
+            <div class="header-actions">
+
+                <!-- SESIÓN -->
+
+                <div class="user-session-container">
+
+                    <button
+                        type="button"
+                        class="login-button"
+                        id="btnLogin"
+                        aria-haspopup="true"
+                        aria-expanded="false"
+                        aria-controls="menuUsuario"
+                    >
+
+                        <i class="fa-regular fa-user"></i>
+
+                        <span>
+                            Iniciar sesión
+                        </span>
+
+                    </button>
+
+
+                    <!-- MENÚ DEL USUARIO -->
+
+                    <div
+                        class="user-menu"
+                        id="menuUsuario"
+                        aria-hidden="true"
+                    >
+
+                        <div class="user-menu-header">
+
+                            <div class="user-menu-avatar">
+
+                                <i class="fa-solid fa-user"></i>
+
+                            </div>
+
+
+                            <div class="user-menu-information">
+
+                                <strong id="nombreMenuUsuario">
+                                    Usuario
+                                </strong>
+
+                                <span id="correoMenuUsuario">
+                                    correo@ejemplo.com
+                                </span>
+
+                                <small id="rolMenuUsuario">
+                                    Cliente
+                                </small>
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="user-menu-divider"></div>
+
+
+                        <!-- MI CUENTA -->
+
+                        <button
+                            type="button"
+                            class="user-menu-option"
+                            id="btnMiCuenta"
+                        >
+
+                            <i class="fa-regular fa-id-card"></i>
+
+                            <span>
+                                Mi cuenta
+                            </span>
+
+                        </button>
+
+
+                        <!-- CAMBIAR CUENTA -->
+
+                        <button
+                            type="button"
+                            class="user-menu-option"
+                            id="btnCambiarCuenta"
+                        >
+
+                            <i class="fa-solid fa-repeat"></i>
+
+                            <span>
+                                Cambiar de cuenta
+                            </span>
+
+                        </button>
+
+
+                        <!-- CERRAR SESIÓN -->
+
+                        <button
+                            type="button"
+                            class="user-menu-option logout-option"
+                            id="btnCerrarSesion"
+                        >
+
+                            <i class="fa-solid fa-right-from-bracket"></i>
+
+                            <span>
+                                Cerrar sesión
+                            </span>
+
+                        </button>
+
+                    </div>
+
+                </div>
+
+
+                <!-- MENÚ MÓVIL -->
+
+                <button
+                    type="button"
+                    class="menu-button"
+                    id="btnMenu"
+                    aria-label="Abrir menú"
+                    aria-expanded="false"
+                    aria-controls="navigation"
+                >
+
+                    <i class="fa-solid fa-bars"></i>
+
+                </button>
+
+            </div>
+
+        </div>
+
+    </header>
+<div class="admin-header-spacer" aria-hidden="true"></div>
+<div class="admin-layout admin-layout-standalone">
+
+<main class="admin-main admin-main-standalone">
+<header class="admin-topbar">
+<div>
+<span class="admin-eyebrow">Administración</span>
+<h1>Usuarios</h1>
+<p>Gestiona clientes, vendedores y administradores sin eliminar sus cuentas.</p>
+</div>
+
+</header>
+<section aria-label="Resumen de usuarios" class="admin-summary-grid">
+<article class="summary-card">
+<div class="summary-icon"><i class="fa-solid fa-users"></i></div>
+<div><span>Total usuarios</span><strong id="totalUsuarios">0</strong></div>
+</article>
+<article class="summary-card">
+<div class="summary-icon"><i class="fa-solid fa-user-check"></i></div>
+<div><span>Activos</span><strong id="totalActivos">0</strong></div>
+</article>
+<article class="summary-card">
+<div class="summary-icon"><i class="fa-solid fa-user-tie"></i></div>
+<div><span>Personal interno</span><strong id="totalPersonal">0</strong></div>
+</article>
+</section>
+<section class="admin-card">
+<div class="admin-card-header">
+<div>
+<h2>Listado de usuarios</h2>
+<p>Busca, filtra, edita, activa o desactiva cuentas.</p>
+</div>
+<button class="admin-primary-button" id="btnNuevoUsuario" type="button">
+<i class="fa-solid fa-user-plus"></i> Nuevo usuario
+                </button>
+</div>
+<div class="admin-toolbar admin-toolbar-users">
+<div class="admin-search">
+<i class="fa-solid fa-magnifying-glass"></i>
+<input autocomplete="off" id="buscarUsuario" placeholder="Buscar por nombre, correo o teléfono..." type="search"/>
+</div>
+<select aria-label="Filtrar por rol" id="filtroRol">
+<option value="">Todos los roles</option>
+<option value="Cliente">Cliente</option>
+<option value="Vendedor">Vendedor</option>
+<option value="Administrador">Administrador</option>
+</select>
+<select aria-label="Filtrar por estado" id="filtroEstado">
+<option value="">Todos los estados</option>
+<option value="activo">Activos</option>
+<option value="inactivo">Inactivos</option>
+</select>
+</div>
+<div class="admin-message" id="mensajeUsuarios" role="status"></div>
+<div class="admin-table-wrapper">
+<table class="admin-table">
+<thead>
+<tr>
+<th>Usuario</th>
+<th>Correo</th>
+<th>Teléfono</th>
+<th>Rol</th>
+<th>Estado</th>
+<th>Registro</th>
+<th>Acciones</th>
+</tr>
+</thead>
+<tbody id="tablaUsuarios">
+<tr><td colspan="7"><div class="admin-loading"><i class="fa-solid fa-spinner fa-spin"></i> Cargando usuarios...</div></td></tr>
+</tbody>
+</table>
+</div>
+</section>
+</main>
+</div>
+<div aria-hidden="true" class="admin-modal-overlay" id="modalUsuario">
+<div aria-labelledby="tituloModalUsuario" aria-modal="true" class="admin-modal" role="dialog">
+<button aria-label="Cerrar" class="admin-modal-close" id="btnCerrarModalUsuario" type="button"><i class="fa-solid fa-xmark"></i></button>
+<div class="admin-modal-heading">
+<span id="etiquetaModalUsuario">Nuevo usuario</span>
+<h2 id="tituloModalUsuario">Crear usuario</h2>
+</div>
+<div class="admin-message" id="mensajeModalUsuario" role="status"></div>
+<form id="formUsuario" novalidate="">
+<div class="admin-form-grid">
+<div class="admin-field">
+<label for="usuarioNombres">Nombres *</label>
+<input id="usuarioNombres" maxlength="100" required="" type="text"/>
+</div>
+<div class="admin-field">
+<label for="usuarioApellidos">Apellidos *</label>
+<input id="usuarioApellidos" maxlength="100" required="" type="text"/>
+</div>
+<div class="admin-field">
+<label for="usuarioCorreo">Correo *</label>
+<input id="usuarioCorreo" maxlength="150" required="" type="email"/>
+</div>
+<div class="admin-field">
+<label for="usuarioTelefono">Teléfono</label>
+<input id="usuarioTelefono" maxlength="30" type="tel"/>
+</div>
+<div class="admin-field">
+<label for="usuarioRol">Rol *</label>
+<select id="usuarioRol" required="">
+<option value="Cliente">Cliente</option>
+<option value="Vendedor">Vendedor</option>
+<option value="Administrador">Administrador</option>
+</select>
+</div>
+<div class="admin-field" id="campoEstadoUsuario">
+<label for="usuarioEstado">Estado</label>
+<select id="usuarioEstado">
+<option value="true">Activo</option>
+<option value="false">Inactivo</option>
+</select>
+</div>
+<div class="admin-field" id="campoPasswordUsuario">
+<label for="usuarioPassword">Contraseña *</label>
+<input autocomplete="new-password" id="usuarioPassword" minlength="8" type="password"/>
+<small>Mínimo 8 caracteres para usuarios creados por administración.</small>
+</div>
+<div class="admin-field" id="campoConfirmarPasswordUsuario">
+<label for="usuarioConfirmarPassword">Confirmar contraseña *</label>
+<input autocomplete="new-password" id="usuarioConfirmarPassword" minlength="8" type="password"/>
+</div>
+</div>
+<div class="admin-modal-actions">
+<button class="admin-secondary-button" id="btnCancelarUsuario" type="button">Cancelar</button>
+<button class="admin-primary-button" id="btnGuardarUsuario" type="submit"><i class="fa-solid fa-floppy-disk"></i> Guardar usuario</button>
+</div>
+</form>
+</div>
+</div>
+<div aria-hidden="true" class="admin-modal-overlay" id="modalPassword">
+<div aria-labelledby="tituloModalPassword" aria-modal="true" class="admin-modal admin-modal-small" role="dialog">
+<button aria-label="Cerrar" class="admin-modal-close" id="btnCerrarModalPassword" type="button"><i class="fa-solid fa-xmark"></i></button>
+<div class="admin-modal-heading">
+<span>Seguridad</span>
+<h2 id="tituloModalPassword">Restablecer contraseña</h2>
+<p class="admin-modal-description" id="textoUsuarioPassword"></p>
+</div>
+<div class="admin-message" id="mensajeModalPassword" role="status"></div>
+<form id="formResetPassword" novalidate="">
+<div class="admin-field">
+<label for="resetNuevaPassword">Nueva contraseña *</label>
+<input autocomplete="new-password" id="resetNuevaPassword" minlength="8" required="" type="password"/>
+</div>
+<div class="admin-field">
+<label for="resetConfirmarPassword">Confirmar contraseña *</label>
+<input autocomplete="new-password" id="resetConfirmarPassword" minlength="8" required="" type="password"/>
+</div>
+<div class="admin-modal-actions">
+<button class="admin-secondary-button" id="btnCancelarPassword" type="button">Cancelar</button>
+<button class="admin-primary-button" id="btnGuardarPassword" type="submit"><i class="fa-solid fa-key"></i> Restablecer</button>
+</div>
+</form>
+</div>
+</div>
+<script src="../js/config.js"></script>
+<script src="../js/auth.js"></script>
+<script src="./js/usuarios-admin.js"></script>
+</body>
+</html>

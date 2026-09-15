@@ -1,0 +1,625 @@
+/* =====================================================
+   MI CUENTA
+===================================================== */
+
+.account-header {
+    width: 100%;
+    background: #ffffff;
+    border-bottom: 1px solid #e5e7eb;
+}
+
+.account-header-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    min-height: 78px;
+    padding: 0 24px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+.account-logo {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+
+    color: #111827;
+    text-decoration: none;
+}
+
+.account-logo-icon {
+    width: 44px;
+    height: 44px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 12px;
+
+    background: #0f766e;
+    color: #ffffff;
+
+    font-size: 20px;
+}
+
+.account-logo strong {
+    display: block;
+    font-size: 18px;
+}
+
+.account-logo span {
+    display: block;
+    margin-top: 2px;
+
+    color: #6b7280;
+    font-size: 12px;
+}
+
+.account-back {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+
+    color: #374151;
+    text-decoration: none;
+
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.account-back:hover {
+    color: #0f766e;
+}
+
+
+/* =====================================================
+   CONTENIDO
+===================================================== */
+
+.account-main {
+    min-height: calc(100vh - 78px);
+    padding: 60px 24px;
+
+    background: #f7f8fa;
+}
+
+.account-container {
+    width: 100%;
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+
+/* =====================================================
+   INTRODUCCIÓN
+===================================================== */
+
+.account-introduction {
+    margin-bottom: 34px;
+}
+
+.account-eyebrow {
+    display: inline-block;
+
+    margin-bottom: 8px;
+
+    color: #0f766e;
+
+    font-size: 12px;
+    font-weight: 800;
+    letter-spacing: 1.5px;
+}
+
+.account-introduction h1 {
+    margin: 0 0 10px;
+
+    color: #111827;
+
+    font-size: clamp(
+        30px,
+        5vw,
+        42px
+    );
+
+    line-height: 1.1;
+}
+
+.account-introduction p {
+    max-width: 650px;
+
+    margin: 0;
+
+    color: #6b7280;
+
+    line-height: 1.7;
+}
+
+
+/* =====================================================
+   GRID
+===================================================== */
+
+.account-grid {
+    display: grid;
+
+    grid-template-columns:
+        repeat(2, minmax(0, 1fr));
+
+    gap: 24px;
+}
+
+
+/* =====================================================
+   CARD
+===================================================== */
+
+.account-card {
+    background: #ffffff;
+
+    border: 1px solid #e5e7eb;
+
+    border-radius: 20px;
+
+    padding: 28px;
+
+    box-shadow:
+        0 10px 30px
+        rgba(15, 23, 42, 0.05);
+}
+
+.account-card-header {
+    display: flex;
+    align-items: flex-start;
+
+    gap: 14px;
+
+    margin-bottom: 24px;
+}
+
+.account-card-icon {
+    flex: 0 0 auto;
+
+    width: 46px;
+    height: 46px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 14px;
+
+    background: #ecfdf5;
+    color: #0f766e;
+
+    font-size: 18px;
+}
+
+.account-card-header h2 {
+    margin: 0 0 5px;
+
+    color: #111827;
+
+    font-size: 19px;
+}
+
+.account-card-header p {
+    margin: 0;
+
+    color: #6b7280;
+
+    font-size: 13px;
+    line-height: 1.5;
+}
+
+
+/* =====================================================
+   FORMULARIOS
+===================================================== */
+
+.account-field {
+    margin-bottom: 18px;
+}
+
+.account-field label {
+    display: block;
+
+    margin-bottom: 7px;
+
+    color: #374151;
+
+    font-size: 13px;
+    font-weight: 700;
+}
+
+.account-input-wrapper {
+    position: relative;
+
+    display: flex;
+    align-items: center;
+}
+
+.account-input-wrapper > i {
+    position: absolute;
+    left: 15px;
+
+    color: #9ca3af;
+
+    pointer-events: none;
+}
+
+.account-input-wrapper input {
+    width: 100%;
+
+    min-height: 48px;
+
+    padding:
+        0 45px
+        0 42px;
+
+    border:
+        1px solid #d1d5db;
+
+    border-radius: 11px;
+
+    outline: none;
+
+    background: #ffffff;
+
+    color: #111827;
+
+    font-size: 14px;
+
+    transition:
+        border-color .2s ease,
+        box-shadow .2s ease;
+}
+
+.account-input-wrapper input:focus {
+    border-color: #0f766e;
+
+    box-shadow:
+        0 0 0 3px
+        rgba(15, 118, 110, 0.10);
+}
+
+.password-toggle {
+    position: absolute;
+
+    right: 10px;
+
+    width: 34px;
+    height: 34px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border: 0;
+
+    background: transparent;
+
+    color: #6b7280;
+
+    cursor: pointer;
+}
+
+.password-toggle:hover {
+    color: #0f766e;
+}
+
+
+/* =====================================================
+   INFO ROL
+===================================================== */
+
+.account-info-box {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+
+    margin:
+        6px 0
+        20px;
+
+    padding: 13px 15px;
+
+    border-radius: 12px;
+
+    background: #f0fdfa;
+
+    border: 1px solid #ccfbf1;
+}
+
+.account-info-box > i {
+    color: #0f766e;
+}
+
+.account-info-box span {
+    display: block;
+
+    color: #6b7280;
+
+    font-size: 11px;
+}
+
+.account-info-box strong {
+    display: block;
+
+    margin-top: 2px;
+
+    color: #115e59;
+
+    font-size: 13px;
+}
+
+
+/* =====================================================
+   MENSAJES
+===================================================== */
+
+.account-message {
+    display: none;
+
+    margin-bottom: 18px;
+
+    padding: 12px 14px;
+
+    border-radius: 10px;
+
+    font-size: 13px;
+    line-height: 1.5;
+}
+
+.account-message.show {
+    display: block;
+}
+
+.account-message.success {
+    background: #ecfdf5;
+    color: #047857;
+
+    border: 1px solid #a7f3d0;
+}
+
+.account-message.error {
+    background: #fef2f2;
+    color: #b91c1c;
+
+    border: 1px solid #fecaca;
+}
+
+
+/* =====================================================
+   BOTÓN PRINCIPAL
+===================================================== */
+
+.account-primary-button {
+    width: 100%;
+
+    min-height: 48px;
+
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    gap: 9px;
+
+    border: 0;
+
+    border-radius: 11px;
+
+    background: #0f766e;
+    color: #ffffff;
+
+    font-size: 14px;
+    font-weight: 700;
+
+    cursor: pointer;
+
+    transition:
+        transform .2s ease,
+        background .2s ease;
+}
+
+.account-primary-button:hover {
+    background: #115e59;
+
+    transform: translateY(-1px);
+}
+
+.account-primary-button:disabled {
+    opacity: .6;
+
+    cursor: not-allowed;
+
+    transform: none;
+}
+
+
+/* =====================================================
+   SEGURIDAD
+===================================================== */
+
+.account-security-info {
+    display: flex;
+
+    align-items: flex-start;
+
+    gap: 10px;
+
+    margin:
+        4px 0
+        20px;
+
+    padding: 13px 14px;
+
+    border-radius: 11px;
+
+    background: #f9fafb;
+
+    border: 1px solid #e5e7eb;
+}
+
+.account-security-info i {
+    margin-top: 2px;
+
+    color: #6b7280;
+}
+
+.account-security-info p {
+    margin: 0;
+
+    color: #6b7280;
+
+    font-size: 12px;
+
+    line-height: 1.6;
+}
+
+
+/* =====================================================
+   SESIÓN
+===================================================== */
+
+.account-session-card {
+    margin-top: 24px;
+
+    padding: 22px 26px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 20px;
+
+    background: #ffffff;
+
+    border:
+        1px solid #e5e7eb;
+
+    border-radius: 18px;
+}
+
+.account-session-card > div {
+    display: flex;
+    align-items: center;
+
+    gap: 13px;
+}
+
+.account-session-icon {
+    width: 42px;
+    height: 42px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 12px;
+
+    background: #fef2f2;
+    color: #dc2626;
+}
+
+.account-session-card h2 {
+    margin: 0 0 4px;
+
+    color: #111827;
+
+    font-size: 16px;
+}
+
+.account-session-card p {
+    margin: 0;
+
+    color: #6b7280;
+
+    font-size: 12px;
+}
+
+.account-danger-button {
+    min-height: 42px;
+
+    padding:
+        0 17px;
+
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    gap: 8px;
+
+    border: 1px solid #fecaca;
+
+    border-radius: 10px;
+
+    background: #fff;
+
+    color: #dc2626;
+
+    font-size: 13px;
+    font-weight: 700;
+
+    cursor: pointer;
+}
+
+.account-danger-button:hover {
+    background: #fef2f2;
+}
+
+
+/* =====================================================
+   RESPONSIVE
+===================================================== */
+
+@media (
+    max-width: 800px
+) {
+
+    .account-grid {
+        grid-template-columns: 1fr;
+    }
+
+}
+
+
+@media (
+    max-width: 600px
+) {
+
+    .account-main {
+        padding:
+            40px 16px;
+    }
+
+    .account-header-container {
+        padding:
+            0 16px;
+    }
+
+    .account-back {
+        font-size: 0;
+    }
+
+    .account-back i {
+        font-size: 16px;
+    }
+
+    .account-card {
+        padding: 21px;
+        border-radius: 16px;
+    }
+
+    .account-session-card {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .account-danger-button {
+        width: 100%;
+    }
+
+}

@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Editor visual | Ligor Travel</title>
+<link href="../css/styles.css" rel="stylesheet"/>
+<link href="../css/auth.css" rel="stylesheet"/>
+<link href="./css/admin.css" rel="stylesheet"/>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" rel="stylesheet"/>
+<style>
+.site-editor{padding:28px;max-width:1500px;margin:auto}.editor-toolbar{display:flex;gap:10px;align-items:center;flex-wrap:wrap;background:#fff;padding:16px;border-radius:18px;margin:20px 0;box-shadow:0 8px 30px #0b244014}.editor-toolbar button,.editor-toolbar label{border:0;border-radius:12px;padding:11px 15px;font-weight:800;cursor:pointer;background:#eef3f8;color:#0a2342}.editor-toolbar .primary{background:#ef2b22;color:#fff}.editor-toolbar input[type=file]{display:none}.editor-toolbar select,.editor-toolbar input[type=color],.editor-toolbar input[type=number]{height:42px;border:1px solid #dbe3ec;border-radius:10px;padding:0 9px;background:#fff}.editor-toolbar input[type=color]{width:48px;padding:3px}.editor-stage-wrap{background:#fff;padding:18px;border-radius:20px;box-shadow:0 12px 36px #0b244016}.editor-stage{position:relative;width:100%;aspect-ratio:16/7;min-height:420px;overflow:hidden;border-radius:16px;background:#152b43 center/cover no-repeat;box-shadow:inset 0 0 0 1px #dce4ed}.editor-stage:after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(3,15,32,.45),rgba(3,15,32,.08));pointer-events:none}.editor-text{position:absolute;z-index:2;min-width:80px;padding:5px 8px;cursor:move;user-select:none;white-space:pre-wrap;line-height:1.1;border:1px dashed transparent}.editor-text.selected{border-color:#fff;outline:2px solid #ef2b22;background:#0002}.editor-hint{position:absolute;inset:0;display:grid;place-items:center;text-align:center;color:#fff;z-index:1;pointer-events:none}.editor-hint i{font-size:48px;display:block;margin-bottom:10px}.editor-help{color:#607086;margin:8px 0 0}.editor-message{margin-top:12px;font-weight:700}.editor-message.success{color:#0b8f60}.editor-message.error{color:#c62828}.image-position-modal{position:fixed;inset:0;background:#071a2d99;z-index:5000;display:none;align-items:center;justify-content:center;padding:20px}.image-position-modal.open{display:flex}.image-position-box{width:min(420px,100%);background:#fff;border-radius:20px;padding:22px;box-shadow:0 22px 70px #06182b55}.image-position-box h3{margin:0 0 6px;color:#0a2342}.image-position-box p{margin:0 0 16px;color:#607086}.position-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:9px}.position-grid button{border:1px solid #dce4ed;background:#f5f8fb;border-radius:11px;padding:11px 7px;cursor:pointer;font-weight:800;color:#18344f}.position-grid button:hover,.position-grid button.active{background:#ef2b22;color:#fff;border-color:#ef2b22}.position-actions{display:flex;justify-content:flex-end;gap:9px;margin-top:17px}.position-actions button{border:0;border-radius:11px;padding:10px 15px;font-weight:800;cursor:pointer}.position-actions .center-image{background:#0a2342;color:#fff}.position-actions .close-position{background:#edf2f6;color:#18344f}@media(max-width:700px){.site-editor{padding:14px}.editor-stage{min-height:500px;aspect-ratio:auto}.editor-toolbar{align-items:stretch}.editor-toolbar>*{flex:1 1 auto}}
+</style>
+</head>
+<body class="admin-body">
+<header
+        class="header"
+        id="header"
+    >
+
+        <div class="header-container">
+
+            <!-- LOGOTIPO -->
+
+            <a
+                href="../index.html#inicio"
+                class="brand"
+            >
+
+                <div class="brand-icon">
+                    <i class="fa-solid fa-earth-americas"></i>
+                </div>
+
+                <div class="brand-text">
+
+                    <strong>
+                        Ligor Travel
+                    </strong>
+
+                    <span>
+                        Viaja, descubre y comparte
+                    </span>
+
+                </div>
+
+            </a>
+
+
+            <!-- NAVEGACIÓN -->
+
+            <nav
+                class="navigation"
+                id="navigation"
+                aria-label="Navegación principal"
+            >
+
+                <a
+                    href="#inicio"
+                    class="nav-link active"
+                >
+                    Inicio
+                </a>
+
+                <a
+                    href="#destinos"
+                    class="nav-link"
+                >
+                    Destinos
+                </a>
+
+                <a
+                    href="#experiencias"
+                    class="nav-link"
+                >
+                    Experiencias
+                </a>
+
+                <a
+                    href="#paquetes"
+                    class="nav-link"
+                >
+                    Paquetes
+                </a>
+
+                <a
+                    href="#nosotros"
+                    class="nav-link"
+                >
+                    Nosotros
+                </a>
+
+                <a
+                    href="#contacto"
+                    class="nav-link"
+                >
+                    Contacto
+                </a>
+
+            </nav>
+
+
+            <!-- ACCIONES DEL HEADER -->
+
+            <div class="header-actions">
+
+                <!-- SESIÓN -->
+
+                <div class="user-session-container">
+
+                    <button
+                        type="button"
+                        class="login-button"
+                        id="btnLogin"
+                        aria-haspopup="true"
+                        aria-expanded="false"
+                        aria-controls="menuUsuario"
+                    >
+
+                        <i class="fa-regular fa-user"></i>
+
+                        <span>
+                            Iniciar sesión
+                        </span>
+
+                    </button>
+
+
+                    <!-- MENÚ DEL USUARIO -->
+
+                    <div
+                        class="user-menu"
+                        id="menuUsuario"
+                        aria-hidden="true"
+                    >
+
+                        <div class="user-menu-header">
+
+                            <div class="user-menu-avatar">
+
+                                <i class="fa-solid fa-user"></i>
+
+                            </div>
+
+
+                            <div class="user-menu-information">
+
+                                <strong id="nombreMenuUsuario">
+                                    Usuario
+                                </strong>
+
+                                <span id="correoMenuUsuario">
+                                    correo@ejemplo.com
+                                </span>
+
+                                <small id="rolMenuUsuario">
+                                    Cliente
+                                </small>
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="user-menu-divider"></div>
+
+
+                        <!-- MI CUENTA -->
+
+                        <button
+                            type="button"
+                            class="user-menu-option"
+                            id="btnMiCuenta"
+                        >
+
+                            <i class="fa-regular fa-id-card"></i>
+
+                            <span>
+                                Mi cuenta
+                            </span>
+
+                        </button>
+
+
+                        <!-- CAMBIAR CUENTA -->
+
+                        <button
+                            type="button"
+                            class="user-menu-option"
+                            id="btnCambiarCuenta"
+                        >
+
+                            <i class="fa-solid fa-repeat"></i>
+
+                            <span>
+                                Cambiar de cuenta
+                            </span>
+
+                        </button>
+
+
+                        <!-- CERRAR SESIÓN -->
+
+                        <button
+                            type="button"
+                            class="user-menu-option logout-option"
+                            id="btnCerrarSesion"
+                        >
+
+                            <i class="fa-solid fa-right-from-bracket"></i>
+
+                            <span>
+                                Cerrar sesión
+                            </span>
+
+                        </button>
+
+                    </div>
+
+                </div>
+
+
+                <!-- MENÚ MÓVIL -->
+
+                <button
+                    type="button"
+                    class="menu-button"
+                    id="btnMenu"
+                    aria-label="Abrir menú"
+                    aria-expanded="false"
+                    aria-controls="navigation"
+                >
+
+                    <i class="fa-solid fa-bars"></i>
+
+                </button>
+
+            </div>
+
+        </div>
+
+    </header>
+<div class="admin-header-spacer" aria-hidden="true"></div>
+<main class="site-editor">
+<header class="admin-topbar"><div><span class="admin-eyebrow">APARIENCIA DEL SITIO</span><h1>Editor visual</h1><p>Sube una imagen de fondo y coloca textos libremente sobre la portada.</p></div></header>
+<div class="editor-toolbar">
+<label for="heroImagenAdmin"><i class="fa-regular fa-image"></i> Elegir imagen<input id="heroImagenAdmin" type="file" accept="image/jpeg,image/png,image/webp"></label>
+<button id="btnSubirImagen" type="button"><i class="fa-solid fa-cloud-arrow-up"></i> Aplicar imagen</button>
+<button id="btnAgregarTexto" class="primary" type="button"><i class="fa-solid fa-font"></i> Agregar texto</button>
+<select id="fuenteTexto" title="Tipo de letra"><option>Arial</option><option>Verdana</option><option>Georgia</option><option>Times New Roman</option><option>Trebuchet MS</option><option>Courier New</option><option>Impact</option><option>Comic Sans MS</option><option>Tahoma</option><option>Palatino Linotype</option></select>
+<input id="colorTexto" type="color" value="#ffffff" title="Color del texto">
+<input id="tamanoTexto" type="number" min="12" max="120" value="42" title="Tamaño" style="width:82px">
+<button id="btnNegrita" type="button" title="Negrita"><i class="fa-solid fa-bold"></i></button>
+<button id="btnCursiva" type="button" title="Cursiva"><i class="fa-solid fa-italic"></i></button>
+<button id="btnEliminarTexto" type="button" title="Eliminar texto"><i class="fa-solid fa-trash"></i></button>
+<button id="btnGuardarDiseno" class="primary" type="button"><i class="fa-solid fa-floppy-disk"></i> Guardar diseño</button>
+<a class="admin-secondary-button" href="../index.html"><i class="fa-solid fa-eye"></i> Ver página</a>
+</div>
+<div class="editor-stage-wrap">
+<div id="editorStage" class="editor-stage"><div id="editorHint" class="editor-hint"><div><i class="fa-regular fa-image"></i><b>Elige una imagen para comenzar</b><br>Luego agrega textos y arrástralos al lugar que quieras.</div></div></div>
+<p class="editor-help"><i class="fa-solid fa-circle-info"></i> Selecciona un texto para cambiar fuente, color, tamaño, negrita o cursiva. Arrástralo para moverlo. <b>Haz doble clic sobre la imagen para centrar o cambiar su posición.</b></p>
+<div id="mensajeEditor" class="editor-message"></div>
+</div>
+</main>
+<div id="modalPosicionImagen" class="image-position-modal" aria-hidden="true">
+  <div class="image-position-box">
+    <h3><i class="fa-solid fa-arrows-to-dot"></i> Posición de la imagen</h3>
+    <p>Elige qué parte de la imagen quieres mostrar en el centro de la portada.</p>
+    <div class="position-grid" id="positionGrid">
+      <button type="button" data-x="0" data-y="0">↖ Arriba izq.</button><button type="button" data-x="50" data-y="0">↑ Arriba</button><button type="button" data-x="100" data-y="0">↗ Arriba der.</button>
+      <button type="button" data-x="0" data-y="50">← Izquierda</button><button type="button" data-x="50" data-y="50">● Centro</button><button type="button" data-x="100" data-y="50">→ Derecha</button>
+      <button type="button" data-x="0" data-y="100">↙ Abajo izq.</button><button type="button" data-x="50" data-y="100">↓ Abajo</button><button type="button" data-x="100" data-y="100">↘ Abajo der.</button>
+    </div>
+    <div class="position-actions"><button type="button" id="btnCentrarImagen" class="center-image">Centrar imagen</button><button type="button" id="btnCerrarPosicion" class="close-position">Cerrar</button></div>
+  </div>
+</div>
+<script src="../js/config.js"></script><script src="../js/auth.js"></script><script src="./js/sitio-admin.js"></script>
+</body></html>

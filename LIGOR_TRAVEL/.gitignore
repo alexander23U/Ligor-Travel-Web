@@ -1,0 +1,22 @@
+# Visual Studio
+.vs/
+*.user
+*.suo
+
+# .NET
+**/bin/
+**/obj/
+
+# Local secrets / environment
+.env
+.env.*
+appsettings.Local.json
+appsettings.Production.json
+
+# Local databases / logs
+*.db
+*.sqlite
+*.log
+
+# Nested repositories
+backend/.git/

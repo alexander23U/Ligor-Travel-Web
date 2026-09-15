@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <title>Comunidad Ligor Travel</title>
+
+    <link rel="stylesheet" href="/css/chat.css">
+
+</head>
+
+<body>
+
+<div class="chat-container">
+
+    <div class="chat-header">
+
+        <div class="logo">🌎</div>
+
+        <div>
+
+            <h2>Comunidad Ligor Travel</h2>
+
+            <p>Chat oficial de viajeros</p>
+
+        </div>
+
+    </div>
+
+    <div class="login-box">
+
+        <textarea
+            id="token"
+            placeholder="Pega aquí tu Token JWT">
+        </textarea>
+
+        <input
+            type="number"
+            id="usuarioId"
+            value="3"
+            placeholder="Usuario">
+
+        <button onclick="conectar()">
+
+            Conectar al chat
+
+        </button>
+
+    </div>
+
+    <div id="mensajes" class="mensajes"></div>
+
+    <div class="chat-footer">
+
+        <input
+            id="texto"
+            placeholder="Escribe tu mensaje...">
+
+        <button onclick="enviarMensaje()">
+
+            Enviar
+
+        </button>
+
+    </div>
+
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/microsoft-signalr/8.0.7/signalr.min.js"></script>
+
+<script src="/js/chat.js"></script>
+
+</body>
+
+</html>

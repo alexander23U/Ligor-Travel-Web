@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+
+<html lang="es">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<meta content="Gestión de opiniones y comentarios de Ligor Travel." name="description"/>
+<title>Opiniones | Ligor Travel</title>
+<link href="../css/styles.css" rel="stylesheet"/>
+<link href="../css/auth.css" rel="stylesheet"/>
+<link href="./css/admin.css" rel="stylesheet"/>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" rel="stylesheet"/>
+</head>
+<body class="admin-body">
+<header class="header" id="header">
+<div class="header-container">
+<!-- LOGOTIPO -->
+<a class="brand" href="../index.html#inicio">
+<div class="brand-icon">
+<i class="fa-solid fa-earth-americas"></i>
+</div>
+<div class="brand-text">
+<strong>
+                        Ligor Travel
+                    </strong>
+<span>
+                        Viaja, descubre y comparte
+                    </span>
+</div>
+</a>
+<!-- NAVEGACIÓN -->
+<nav aria-label="Navegación principal" class="navigation" id="navigation">
+<a class="nav-link active" href="#inicio">
+                    Inicio
+                </a>
+<a class="nav-link" href="#destinos">
+                    Destinos
+                </a>
+<a class="nav-link" href="#experiencias">
+                    Experiencias
+                </a>
+<a class="nav-link" href="#paquetes">
+                    Paquetes
+                </a>
+<a class="nav-link" href="#nosotros">
+                    Nosotros
+                </a>
+<a class="nav-link" href="#contacto">
+                    Contacto
+                </a>
+</nav>
+<!-- ACCIONES DEL HEADER -->
+<div class="header-actions">
+<!-- SESIÓN -->
+<div class="user-session-container">
+<button aria-controls="menuUsuario" aria-expanded="false" aria-haspopup="true" class="login-button" id="btnLogin" type="button">
+<i class="fa-regular fa-user"></i>
+<span>
+                            Iniciar sesión
+                        </span>
+</button>
+<!-- MENÚ DEL USUARIO -->
+<div aria-hidden="true" class="user-menu" id="menuUsuario">
+<div class="user-menu-header">
+<div class="user-menu-avatar">
+<i class="fa-solid fa-user"></i>
+</div>
+<div class="user-menu-information">
+<strong id="nombreMenuUsuario">
+                                    Usuario
+                                </strong>
+<span id="correoMenuUsuario">
+                                    correo@ejemplo.com
+                                </span>
+<small id="rolMenuUsuario">
+                                    Cliente
+                                </small>
+</div>
+</div>
+<div class="user-menu-divider"></div>
+<!-- MI CUENTA -->
+<button class="user-menu-option" id="btnMiCuenta" type="button">
+<i class="fa-regular fa-id-card"></i>
+<span>
+                                Mi cuenta
+                            </span>
+</button>
+<!-- CAMBIAR CUENTA -->
+<button class="user-menu-option" id="btnCambiarCuenta" type="button">
+<i class="fa-solid fa-repeat"></i>
+<span>
+                                Cambiar de cuenta
+                            </span>
+</button>
+<!-- CERRAR SESIÓN -->
+<button class="user-menu-option logout-option" id="btnCerrarSesion" type="button">
+<i class="fa-solid fa-right-from-bracket"></i>
+<span>
+                                Cerrar sesión
+                            </span>
+</button>
+</div>
+</div>
+<!-- MENÚ MÓVIL -->
+<button aria-controls="navigation" aria-expanded="false" aria-label="Abrir menú" class="menu-button" id="btnMenu" type="button">
+<i class="fa-solid fa-bars"></i>
+</button>
+</div>
+</div>
+</header>
+<div aria-hidden="true" class="admin-header-spacer"></div>
+<div class="admin-layout admin-layout-standalone">
+<main class="admin-main admin-main-standalone">
+<header class="admin-topbar">
+<div>
+<span class="admin-eyebrow">Administración</span>
+<h1>Opiniones y comentarios</h1>
+<p>Revisa las calificaciones y comentarios enviados por los clientes.</p>
+</div>
+
+</header>
+<div class="admin-message" id="mensajeOpiniones" role="status"></div>
+<section class="admin-summary-grid">
+<article class="summary-card"><div class="summary-icon"><i class="fa-solid fa-comments"></i></div><div><span>Total de opiniones</span><strong id="totalOpiniones">0</strong></div></article>
+<article class="summary-card"><div class="summary-icon"><i class="fa-solid fa-star"></i></div><div><span>Promedio</span><strong id="promedioOpiniones">0.0</strong></div></article>
+<article class="summary-card"><div class="summary-icon"><i class="fa-solid fa-calendar-day"></i></div><div><span>Este mes</span><strong id="opinionesMes">0</strong></div></article>
+</section>
+<section class="admin-card">
+<div class="admin-card-header">
+<div><h2>Comentarios recibidos</h2><p>También puedes eliminar comentarios inapropiados desde esta pantalla.</p></div>
+</div>
+<div class="admin-toolbar">
+<div class="admin-search">
+<i class="fa-solid fa-magnifying-glass"></i>
+<input id="buscarOpinion" placeholder="Buscar por cliente, paquete o comentario..." type="search"/>
+</div>
+<select aria-label="Filtrar por calificación" id="filtroCalificacion">
+<option value="">Todas las calificaciones</option>
+<option value="5">5 estrellas</option>
+<option value="4">4 estrellas</option>
+<option value="3">3 estrellas</option>
+<option value="2">2 estrellas</option>
+<option value="1">1 estrella</option>
+</select>
+</div>
+<div class="admin-table-wrapper">
+<table class="admin-table">
+<thead><tr><th>ID</th><th>Cliente</th><th>Paquete</th><th>Calificación</th><th>Comentario</th><th>Fecha</th><th>Acción</th></tr></thead>
+<tbody id="tablaOpiniones"><tr><td colspan="7"><div class="admin-loading"><i class="fa-solid fa-spinner fa-spin"></i> Cargando opiniones...</div></td></tr></tbody>
+</table>
+</div>
+</section>
+</main>
+</div>
+<script src="../js/config.js"></script>
+<script src="../js/auth.js"></script>
+<script src="./js/opiniones-admin.js"></script>
+</body>
+</html>
